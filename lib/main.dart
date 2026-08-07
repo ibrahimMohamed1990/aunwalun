@@ -1,3 +1,4 @@
+import 'package:Aunwanlun/features/profile/presentation/screens/edit_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -62,6 +63,7 @@ class AunwalunApp extends ConsumerWidget {
             '/home': (context) => const HomeScreen(),
             '/search-results': (context) => const SearchResultsScreen(),
             '/profile': (context) => const ProfileScreen(),
+            '/edit-profile': (context) => const EditProfileScreen(),
           },
         );
       },
