@@ -247,7 +247,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     child: Image.asset(
                                       'assets/images/avatar.png',
                                       fit: BoxFit.cover,
-                                      errorBuilder: (_, __, ___) => Container(
+                                      errorBuilder: (_, _, _) => Container(
                                         color: Colors.grey.shade100,
                                         child: Icon(
                                           Icons.person,

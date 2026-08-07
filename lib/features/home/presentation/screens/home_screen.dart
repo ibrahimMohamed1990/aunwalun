@@ -1,5 +1,6 @@
 // lib/features/home/presentation/screens/home_screen.dart
 
+import 'package:Aunwanlun/core/widgets/home_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'search_results_screen.dart';
@@ -140,8 +141,22 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    await Future.delayed(const Duration(seconds: 2));
+    if (mounted) setState(() => _isLoading = false);
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (_isLoading) return const HomeShimmer();
     return Scaffold(
       backgroundColor: const Color(0xFFF7FAFC),
       body: Column(
@@ -202,7 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Image.asset(
                   'assets/images/logo.png',
                   width: 160.w,
-                  errorBuilder: (_, __, ___) => const SizedBox(),
+                  errorBuilder: (_, _, _) => const SizedBox(),
                 ),
               ),
             ),
@@ -218,7 +233,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 48.w,
                         height: 48.h,
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.15),
+                          color: Colors.white.withValues(alpha: 0.15),
                           shape: BoxShape.circle,
                         ),
                         child: Icon(
@@ -290,7 +305,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Image.asset(
                         'assets/images/logo.png',
                         fit: BoxFit.contain,
-                        errorBuilder: (_, __, ___) => Icon(
+                        errorBuilder: (_, _, _) => Icon(
                           Icons.people,
                           color: const Color(0xFF2D6A4F),
                           size: 28.sp,
@@ -353,7 +368,7 @@ class _HomeScreenState extends State<HomeScreen> {
         image: DecorationImage(
           image: AssetImage(banner['image']),
           fit: BoxFit.cover,
-          onError: (_, __) {},
+          onError: (_, _) {},
         ),
         gradient: const LinearGradient(
           colors: [Color(0xFF1A3A2A), Color(0xFF2D6A4F)],
@@ -365,7 +380,7 @@ class _HomeScreenState extends State<HomeScreen> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.r),
           gradient: LinearGradient(
-            colors: [Colors.black.withOpacity(0.5), Colors.transparent],
+            colors: [Colors.black.withValues(alpha: 0.5), Colors.transparent],
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
           ),
@@ -420,7 +435,7 @@ class _HomeScreenState extends State<HomeScreen> {
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.06),
+            color: Colors.black.withValues(alpha: 0.06),
             blurRadius: 16,
             offset: const Offset(0, 4),
           ),
@@ -665,7 +680,7 @@ class _HomeScreenState extends State<HomeScreen> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: Colors.black.withValues(alpha: 0.08),
             blurRadius: 12,
             offset: const Offset(0, -4),
           ),
