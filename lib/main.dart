@@ -1,3 +1,4 @@
+import 'package:Aunwanlun/features/orders/presentation/screens/order_form_screen.dart';
 import 'package:Aunwanlun/features/profile/presentation/screens/edit_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -64,6 +65,7 @@ class AunwalunApp extends ConsumerWidget {
             '/search-results': (context) => const SearchResultsScreen(),
             '/profile': (context) => const ProfileScreen(),
             '/edit-profile': (context) => const EditProfileScreen(),
+            '/order-form': (context) => const OrderFormScreen(),
           },
         );
       },
