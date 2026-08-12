@@ -117,70 +117,10 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
   }
 
   void _submitOrder() {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.r),
-        ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(Icons.check_circle, color: Color(0xFF2D6A4F), size: 60),
-            SizedBox(height: 16.h),
-            Text(
-              'تم إرسال طلبك بنجاح!',
-              style: TextStyle(
-                fontFamily: 'Cairo',
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w800,
-                color: const Color(0xFF1A2332),
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 8.h),
-            Text(
-              'سيتواصل معك مندوب الشركة قريباً',
-              style: TextStyle(
-                fontFamily: 'Cairo',
-                fontSize: 13.sp,
-                color: Colors.grey.shade500,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 20.h),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    '/home',
-                    (_) => false,
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF2D6A4F),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                ),
-                child: Text(
-                  'الرئيسية',
-                  style: TextStyle(
-                    fontFamily: 'Cairo',
-                    fontSize: 15.sp,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+    Navigator.pushReplacementNamed(
+      context,
+      '/order-success',
+      arguments: {'order_id': '62'},
     );
   }
 
