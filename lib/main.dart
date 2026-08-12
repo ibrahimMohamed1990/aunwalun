@@ -1,3 +1,5 @@
+import 'package:Aunwanlun/features/auth/presentation/screens/forgot_password_screen.dart';
+import 'package:Aunwanlun/features/orders/presentation/screens/my_orders_screen.dart';
 import 'package:Aunwanlun/features/orders/presentation/screens/order_form_screen.dart';
 import 'package:Aunwanlun/features/profile/presentation/screens/edit_profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,7 @@ import 'features/auth/presentation/screens/register_screen.dart';
 import 'features/home/presentation/screens/home_screen.dart';
 import 'features/home/presentation/screens/search_results_screen.dart';
 import 'features/profile/presentation/screens/profile_screen.dart';
+import 'features/notifications/presentation/screens/notifications_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -66,6 +69,9 @@ class AunwalunApp extends ConsumerWidget {
             '/profile': (context) => const ProfileScreen(),
             '/edit-profile': (context) => const EditProfileScreen(),
             '/order-form': (context) => const OrderFormScreen(),
+            '/my-orders': (context) => const MyOrdersScreen(),
+            '/notifications': (context) => const NotificationsScreen(),
+            '/forgot-password': (context) => const ForgotPasswordScreen(),
           },
         );
       },
